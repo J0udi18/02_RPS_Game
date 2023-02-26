@@ -61,6 +61,9 @@ rps_list = ["rock", "paper", "scissors", "xxx"]
 
 # ask user for # of rounds then loop...
 rounds_played = 0
+
+rounds_lost = 0
+rounds_drawn = 0
 choose_instruction ="please choose rock (r), paper (p) or scissor"
 
 # Ask user for # of rounds, <enter> for infinite mode
@@ -94,12 +97,36 @@ while end_game == "no":
    # get computer choice
     comp_choice = random.choice(rps_list[:-1])
     print("comp_choice: ", comp_choice)
-    
+
    #compare choices
 
     # End game if exit code is typed
     if choose == "xxx":
         break
+
+    # get computer ohoice
+    comp_choice = random.choice(rps_list[:-1])
+
+    # compare choices
+    if comp_choice == user_cjoice:
+          results = "tie"
+          rounds_drawn += 1
+    elif user_choice == "rock" and comp_choice == "scissors":
+          results = "won"
+    elif user_choice == "paper" and comp_choice == "rock":
+          results = "won"
+    elif user_choice == "scissors" and comp_choice == "paper":
+          results = "won"
+    else:
+          results = "lost"
+          rounds_lost += 1
+
+    if results == "tie":
+        feedback = "It's a tie"
+    else:
+         feedback = "{} vs {} - you {}".format(user_choice,
+                                                comp_choice, results)
+         
 
     #  **** rest of loop / game ****
     print("you chose {}".format(choose))
@@ -114,3 +141,13 @@ while end_game == "no":
 # If 'yes' show game history
 
 # show game statistics
+# Qiuck Caloulations (stats)
+rounds_won = rounds_played - rounds_lost - rounds_drawn
+
+# End of Game Statements
+print()
+print('***** End Game Summary *****')
+print("Won: {} \t|\t Lost: {} \t|\t Draw: "
+      "{}".format(rounds_won, rounds_lost, rounds_drwan))
+print()
+print("Thank you for playing")

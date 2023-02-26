@@ -20,4 +20,16 @@ for item in test_results:
         result = "it's a  tie"
         rounds_drwan += 1
     elif result == "loss":
-        
+           rounds_lost += 1
+
+# Qiuck Caloulations (stats)
+rounds_won = rounds_played - rounds_lost - rounds_drawn
+
+# End of Game Statements
+print()
+print('***** End Game Summary *****')
+print("Won: {} \t|\t Lost: {} \t|\t Draw: "
+      "{}".format(rounds_won, rounds_lost, rounds_drwan))
+print()
+print("Thank you for playing")
+  
