@@ -3,7 +3,7 @@
 # Rounds won will be calculated (total - draw - lost)
 rounds_played = 0
 rounds_lost = 0
-rounds_drwan = 0
+rounds_drawn = 0
 
 # Results for testing purposes
 test_results = ["won", "won", "loss", "tie"]
