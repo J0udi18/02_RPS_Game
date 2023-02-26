@@ -1,4 +1,4 @@
-# Main rourine more effioient than v2
+# Main routine more effioient than v2
 
 
 def checker_rounds():
@@ -59,6 +59,9 @@ while end_game == "no":
     # end game if requested # of rounds has been played
     if rounds_played == rounds:
         break
+
+# Put end game content here
+print("Thank you for playing")
 
 
                   
