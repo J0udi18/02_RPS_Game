@@ -62,6 +62,7 @@ rps_list = ["rock", "paper", "scissors", "xxx"]
 # ask user for # of rounds then loop...
 rounds_played = 0
 
+# initialise lost / drawn counters
 rounds_lost = 0
 rounds_drawn = 0
 choose_instruction = "please choose rock (r), paper (p) or scissors"
@@ -94,12 +95,6 @@ while end_game == "no":
     user_choice = choice_checker(choose_instruction, rps_list,
                                  choose_error)
 
-    # get computer choice
-    comp_choice = random.choice(rps_list[:-1])
-    print("comp_choice: ", comp_choice)
-
-    # compare choices
-
     # End game if exit code is typed
     if user_choice == "xxx":
         break
@@ -107,6 +102,7 @@ while end_game == "no":
     # get computer choice, uses rps list but excludes last item
     # which is the exit code
     comp_choice = random.choice(rps_list[:-1])
+    print("comp_choice: ", comp_choice)
 
     # compare choices
     if comp_choice == user_choice:
