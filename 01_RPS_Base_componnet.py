@@ -33,16 +33,16 @@ def choice_checker(question, valid_list, error):
     valid = False
     while not valid:
 
-        # Ask user for ohoice (and put choice in lowercase)
+        # Ask user for choice (and put choice in lowercase)
         response = input(question).lower()
 
-        # interates throught list and if response is an item 
+        # Iterates through list and if response is an item
         # in the list (or the first letter of an item) , the 
         # full item name is returned
 
         for item in valid_list:
             if response == item[0] or response == item:
-                return response
+                return item
 
         # output error if item not in list
         print(error)
@@ -64,7 +64,7 @@ rounds_played = 0
 
 rounds_lost = 0
 rounds_drawn = 0
-choose_instruction = "please choose rock (r), paper (p) or scissor"
+choose_instruction = "please choose rock (r), paper (p) or scissors"
 
 # Ask user for # of rounds, <enter> for infinite mode
 rounds = check_rounds()
@@ -104,7 +104,8 @@ while end_game == "no":
     if user_choice == "xxx":
         break
 
-    # get computer choice
+    # get computer choice, uses rps list but excludes last item
+    # which is the exit code
     comp_choice = random.choice(rps_list[:-1])
 
     # compare choices
@@ -129,6 +130,7 @@ while end_game == "no":
 
     #  **** rest of loop / game ****
     print("you chose {}".format(user_choice))
+    print(feedback)
 
     rounds_played += 1
 
